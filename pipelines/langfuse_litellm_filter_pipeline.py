@@ -21,6 +21,7 @@ from utils.pipelines.main import get_last_assistant_message
 from pydantic import BaseModel
 from langfuse import Langfuse
 from langfuse.api.resources.commons.errors.unauthorized_error import UnauthorizedError
+from security import safe_requests
 
 
 def get_last_assistant_message_obj(messages: List[dict]) -> dict:
@@ -315,7 +316,7 @@ class Pipeline:
             }
 
             # Make the API request
-            response = requests.get(url, headers=headers)
+            response = safe_requests.get(url, headers=headers)
             response.raise_for_status()  # Raise exception for HTTP errors
 
             # Parse the response
