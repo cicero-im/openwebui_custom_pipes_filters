@@ -315,7 +315,7 @@ class Pipeline:
             }
 
             # Make the API request
-            response = requests.get(url, headers=headers)
+            response = requests.get(url, headers=headers, timeout=60)
             response.raise_for_status()  # Raise exception for HTTP errors
 
             # Parse the response

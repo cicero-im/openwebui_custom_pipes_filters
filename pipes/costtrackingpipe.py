@@ -196,7 +196,7 @@ class Pipe:
                 json=payload,
                 headers=headers,
                 stream=True,
-            )
+            timeout=60)
 
             r.raise_for_status()
             assert r.status_code == 200, f"Invalid status code: {r.status_code}"

@@ -254,7 +254,7 @@ class Pipe:
                     json=payload,
                     headers=headers,
                     stream=True,
-                )
+                timeout=60)
                 r.raise_for_status()
             except Exception as e:
                 raise Exception(f"Error when creating requests: ") from e
